@@ -30,10 +30,10 @@ func dirwalk(dir, beforeExt, afterExt string){
     fmt.Printf("%v\n", err)
 		return
 	}
-	
+
 	filepath.Walk(dir, func(path string, info os.FileInfo, err error) error{
 		if filepath.Ext(path) == "." + beforeExt {
-			imgconv.Imgconv(path, beforeExt, afterExt)
+			imgconv.Imgconv(path, afterExt)
 		}
 
 		return nil

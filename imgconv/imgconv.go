@@ -11,7 +11,7 @@ import (
 	"path/filepath"
 )
 
-func Imgconv(path, beforeExt, afterExt string){
+func Imgconv(path, afterExt string){
 	// fileを開く
 	f, err := os.Open(path)
 	if err != nil {
