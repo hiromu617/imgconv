@@ -26,6 +26,11 @@ func main() {
 
 // ディレクトリの中を巡回する
 func dirwalk(dir, beforeExt, afterExt string){
+	if _, err := os.Stat(dir); err != nil {
+    fmt.Printf("%v\n", err)
+		return
+	}
+	
 	filepath.Walk(dir, func(path string, info os.FileInfo, err error) error{
 		if filepath.Ext(path) == "." + beforeExt {
 			imgconv.Imgconv(path, beforeExt, afterExt)
